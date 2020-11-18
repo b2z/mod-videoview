@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.9" client="site" method="upgrade">
+	<name>MOD_VIDEOVIEW</name>
+	<creationDate>05/11/20</creationDate>
+	<author>Dmitry Rekun</author>
+	<authorEmail>d.rekuns@gmail.com</authorEmail>
+	<authorUrl>https://www.norrnext.com</authorUrl>
+	<copyright>Copyright (C) 2020 Dmitry Rekun. All rights reserved.</copyright>
+	<license>GNU General Public License version 3 or later; see LICENSE</license>
+	<version>1.0.0</version>
+	<description>MOD_VIDEOVIEW_XML_DESCRIPTION</description>
+
+	<files>
+		<filename module="mod_videoview">mod_videoview.php</filename>
+		<folder>language</folder>
+		<folder>tmpl</folder>
+		<filename>helper.php</filename>
+	</files>
+
+	<config>
+		<fields name="params">
+			<fieldset name="basic" addfieldpath="/administrator/components/com_content/models/fields">
+				<field
+					name="youtube"
+					type="text"
+					required="1"
+					label="MOD_VIDEOVIEW_FIELD_YOUTUBE_LABEL"
+					description="MOD_VIDEOVIEW_FIELD_YOUTUBE_DESCRIPTION"
+				/>
+
+				<field name="article"
+					type="modal_article"
+					required="1"
+					label="MOD_VIDEOVIEW_FIELD_ARTICLE_LABEL"
+					description="MOD_VIDEOVIEW_FIELD_ARTICLE_DESCRIPTION"
+					filter="integer"
+				/>
+			</fieldset>
+
+			<fieldset name="advanced">
+				<field
+						name="layout"
+						type="modulelayout"
+						label="JFIELD_ALT_LAYOUT_LABEL"
+						description="JFIELD_ALT_MODULE_LAYOUT_DESC"
+				/>
+
+				<field
+						name="moduleclass_sfx"
+						type="textarea"
+						label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+						description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"
+						rows="3"
+				/>
+
+				<field
+						name="cache"
+						type="list"
+						label="COM_MODULES_FIELD_CACHING_LABEL"
+						description="COM_MODULES_FIELD_CACHING_DESC"
+						default="1"
+						filter="integer"
+				>
+					<option value="1">JGLOBAL_USE_GLOBAL</option>
+					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+
+				<field
+						name="cache_time"
+						type="number"
+						label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+						description="COM_MODULES_FIELD_CACHE_TIME_DESC"
+						default="900"
+						filter="integer"
+				/>
+
+				<field
+						name="cachemode"
+						type="hidden"
+						default="static"
+				>
+					<option value="static"></option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
